@@ -10,7 +10,8 @@ void main() {
   GetIt.instance
     ..registerSingleton<Random>(Random())
     ..registerSingleton<Repository>(Repository())
-    ..registerSingleton<AppCubit>(AppCubit()..generateGoods());
+    ..registerSingleton<AppCubit>(AppCubit()
+      ..generateGoods()); //invokes repository`s enormous list generation through cubit
   runApp(const MyApp());
 }
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //pub.dev`s splashscreen
       home: SplashScreenView(
           imageSize: 550,
           duration: 3000,

@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+///This is Goodie class. It has name, url and index fields.
+///Index was implemented to simplify code and workind with this giant list.
+
 class Goodie {
   String name;
   String url;

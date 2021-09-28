@@ -2,6 +2,9 @@ import 'dart:math';
 import 'package:get_it/get_it.dart';
 import 'package:small_test_task_unitpay/models/good.dart';
 
+///Hardcore repository.
+///Has only function to create this "random-amount" of goodies.
+
 class Repository {
   final rnd = GetIt.I.get<Random>();
   List<Goodie> generated = [];

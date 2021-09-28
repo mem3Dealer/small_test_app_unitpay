@@ -5,8 +5,14 @@ import 'package:small_test_task_unitpay/models/good.dart';
 import 'package:small_test_task_unitpay/repositories/repository.dart';
 import 'package:small_test_task_unitpay/state/app_state.dart';
 
+///This is cubit class, which implements work with repository.
+///[generateGoods] invokes rep`s generator, taking result as global list of items and takes first hundred to displayable list.
+///[upload] Takes following 50 items to, well, upload them to displayable list.
+///[addNewGoodie] is obvious method, which takes one random map from repository and inserts it in the beginning.
+///[deleteItem] you will never believe what does this method do.
+
 class AppCubit extends Cubit<AppState> {
-  AppCubit() : super(AppState(0, [], [], false));
+  AppCubit() : super(AppState(0, [], []));
   final rnd = GetIt.I.get<Random>();
   final rep = GetIt.I.get<Repository>();
 
@@ -29,9 +35,10 @@ class AppCubit extends Cubit<AppState> {
 
   void addNewGoodie() {
     List<Goodie>? updated = [];
-    var element = rep.listofGoodies[rnd.nextInt(rep.listofGoodies.length)];
+    Map<String, dynamic> element =
+        rep.listofGoodies[rnd.nextInt(rep.listofGoodies.length)];
     element.putIfAbsent('index', () => 0);
-    var newItem = Goodie.fromMap(element);
+    Goodie newItem = Goodie.fromMap(element);
     updated = state.displayableList;
     updated!.insert(0, newItem);
     emit(state.copyWith(totalList: updated, version: state.version! + 1));

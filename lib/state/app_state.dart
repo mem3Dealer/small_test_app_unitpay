@@ -4,30 +4,31 @@ import 'package:flutter/foundation.dart';
 
 import 'package:small_test_task_unitpay/models/good.dart';
 
+///State of App, using by cubit as default... Well state of app.
+///it has [version] for working capacity of code - cubit requires sometimes such flags for rendering.
+///both lists are quite obvious - [totalList] holds all generated Goodies.
+///[displayableList] contains those, which rendered and ready to be displayed.
+
 class AppState {
   int? version;
   List<Goodie>? totalList = [];
   List<Goodie>? displayableList = [];
-  bool? loadReq;
 
   AppState(
     this.version,
     this.totalList,
     this.displayableList,
-    this.loadReq,
   );
 
   AppState copyWith({
     int? version,
     List<Goodie>? totalList,
     List<Goodie>? displayableList,
-    bool? loadReq,
   }) {
     return AppState(
       version ?? this.version,
       totalList ?? this.totalList,
       displayableList ?? this.displayableList,
-      loadReq ?? this.loadReq,
     );
   }
 
@@ -36,7 +37,6 @@ class AppState {
       'version': version,
       'totalList': totalList?.map((x) => x.toMap()).toList(),
       'displayableList': displayableList?.map((x) => x.toMap()).toList(),
-      'loadReq': loadReq,
     };
   }
 
@@ -45,7 +45,6 @@ class AppState {
       map['version'],
       List<Goodie>.from(map['totalList']?.map((x) => Goodie.fromMap(x))),
       List<Goodie>.from(map['displayableList']?.map((x) => Goodie.fromMap(x))),
-      map['loadReq'],
     );
   }
 
@@ -55,9 +54,8 @@ class AppState {
       AppState.fromMap(json.decode(source));
 
   @override
-  String toString() {
-    return 'AppState(version: $version, totalList: $totalList, displayableList: $displayableList, loadReq: $loadReq)';
-  }
+  String toString() =>
+      'AppState(version: $version, totalList: $totalList, displayableList: $displayableList)';
 
   @override
   bool operator ==(Object other) {
@@ -66,15 +64,10 @@ class AppState {
     return other is AppState &&
         other.version == version &&
         listEquals(other.totalList, totalList) &&
-        listEquals(other.displayableList, displayableList) &&
-        other.loadReq == loadReq;
+        listEquals(other.displayableList, displayableList);
   }
 
   @override
-  int get hashCode {
-    return version.hashCode ^
-        totalList.hashCode ^
-        displayableList.hashCode ^
-        loadReq.hashCode;
-  }
+  int get hashCode =>
+      version.hashCode ^ totalList.hashCode ^ displayableList.hashCode;
 }

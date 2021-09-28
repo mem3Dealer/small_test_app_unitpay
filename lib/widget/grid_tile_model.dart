@@ -4,11 +4,12 @@ import 'package:small_test_task_unitpay/cubit/app_cubit.dart';
 import 'package:small_test_task_unitpay/models/good.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+///Class containes ui elements, which creates custom item card for GridView, which is at home page.
+
 class MyGridItem extends StatelessWidget {
   Goodie goodie;
   MyGridItem({Key? key, required this.goodie}) : super(key: key);
   final appCubit = GetIt.I.get<AppCubit>();
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
