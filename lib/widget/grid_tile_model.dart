@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:small_test_task_unitpay/cubit/app_cubit.dart';
 import 'package:small_test_task_unitpay/models/good.dart';
-import '../app_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class MyGridItem extends StatelessWidget {
@@ -18,11 +18,16 @@ class MyGridItem extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) =>
-                      const SizedBox.expand(child: CircularProgressIndicator()),
-                  imageUrl: goodie.url,
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => Padding(
+                      padding: EdgeInsets.all(50.0),
+                      child: CircularProgressIndicator(),
+                    ),
+                    imageUrl: goodie.url,
+                  ),
                 ),
               ),
               Padding(
@@ -41,7 +46,7 @@ class MyGridItem extends StatelessWidget {
                         icon: const Icon(Icons.delete_outline_rounded))
                   ],
                 ),
-              )
+              ),
             ],
           )),
     );

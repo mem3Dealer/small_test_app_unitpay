@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:small_test_task_unitpay/app_state.dart';
 import 'package:small_test_task_unitpay/models/good.dart';
-import 'package:small_test_task_unitpay/repository.dart';
+import 'package:small_test_task_unitpay/repositories/repository.dart';
+import 'package:small_test_task_unitpay/state/app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppState(0, [], [], false));

@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:get_it/get_it.dart';
 import 'package:small_test_task_unitpay/models/good.dart';
 
@@ -24,7 +23,7 @@ class Repository {
     {"name": "Vinyl", "url": 'https://bit.ly/3CKafPJ'},
     {"name": "Award", "url": 'https://bit.ly/3oaUYDw'},
     {"name": "Mug", "url": 'https://bit.ly/3CFBGKu'},
-    {"name": "Teapot", "url": 'https://bit.ly/3CFFDyI'},
+    {"name": "Teapot", "url": 'https://bit.ly/3zPjfkC'},
     {"name": "Chess", "url": 'https://bit.ly/3i4LLsy'},
     {"name": "Boots", "url": 'https://bit.ly/3lZIb4g'},
   ];

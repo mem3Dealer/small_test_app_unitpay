@@ -1,10 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:small_test_task_unitpay/app_cubit.dart';
-import 'package:small_test_task_unitpay/home.dart';
-import 'package:small_test_task_unitpay/repository.dart';
+import 'package:small_test_task_unitpay/cubit/app_cubit.dart';
+import 'package:small_test_task_unitpay/pages/home.dart';
+import 'package:small_test_task_unitpay/repositories/repository.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
 void main() {

@@ -1,12 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:small_test_task_unitpay/app_cubit.dart';
-import 'package:small_test_task_unitpay/app_state.dart';
-import 'package:small_test_task_unitpay/models/grid_tile_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:small_test_task_unitpay/repository.dart';
+import 'package:small_test_task_unitpay/repositories/repository.dart';
+
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
+import 'package:small_test_task_unitpay/state/app_state.dart';
+import 'package:small_test_task_unitpay/cubit/app_cubit.dart';
+import 'package:small_test_task_unitpay/widget/grid_tile_model.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
